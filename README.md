@@ -37,3 +37,34 @@ $ npm run test
 There is a hidden endpoint that I created for the changing the pricing and deals/discount parameters.
 Since, mostly that feature is used by an admin so I did not build a UI for this. But you can see this
 documentation to see how it works.
+
+`Price update`
+To update price parameters, user needs to hit the endpoint `http://localhost:3001/api/price/updatePricingRules` which is `post` api call, with this payload.
+
+```
+    {
+        "pricingRules": {
+            "atv": {
+                "price": 120.00,
+                "deal": {
+                    "quantity": 2,
+                    "priceFor": 1
+                }
+            },
+            "ipd": {
+                "price": 599.99,
+                "discount": {
+                    "quantity": 3,
+                    "discountedPrice": 549.99
+                }
+            },
+            "mbp": {
+                "price": 1599.99,
+                "freeItem": "vga"
+            },
+            "vga": {
+                "price": 25.00
+            }
+        }
+    }
+```
