@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import { toast } from 'react-toastify'
 import { Button, TextField, Container, Paper, Typography } from '@mui/material'
 import { isSubmitButtonDisabled } from '../../utils/utils'
+import { BASE_URL } from '../../utils/constants'
 
 const Checkout: React.FC = () => {
     const [total, setTotal] = useState<number | null>(null)
@@ -29,17 +30,22 @@ const Checkout: React.FC = () => {
         enableReinitialize: true,
         onSubmit: async (values, { resetForm }) => {
             // Call the backend to calculate the total
-            fetch('http://localhost:3001/calculateTotal', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    scannedItems: values.scannedItems
-                        .split(',')
-                        .map((item) => item.trim()),
-                }),
-            })
+            fetch(
+                `${
+                    process.env.REACT_APP_BASE_URL || BASE_URL
+                }price/calculateTotal`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        scannedItems: values.scannedItems
+                            .split(',')
+                            .map((item) => item.trim()),
+                    }),
+                }
+            )
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error(
@@ -82,8 +88,8 @@ const Checkout: React.FC = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         error={
-                            (formik.touched.scannedItems &&
-                                !!formik.errors.scannedItems) ||
+                            formik.touched.scannedItems &&
+                            !!formik.errors.scannedItems &&
                             !formik.values.scannedItems
                         }
                         helperText={
