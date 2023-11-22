@@ -1,0 +1,7 @@
+# dependencies
+/node_modules
+
+#vscode.settings
+settings.json
+
+.env.*
