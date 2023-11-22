@@ -2,7 +2,15 @@ import { useState } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { toast } from 'react-toastify'
-import { Button, TextField, Container, Paper, Typography } from '@mui/material'
+import {
+    Button,
+    TextField,
+    Container,
+    Paper,
+    Typography,
+    List,
+    ListItem,
+} from '@mui/material'
 import { isSubmitButtonDisabled } from '../../utils/utils'
 import { BASE_URL } from '../../utils/constants'
 
@@ -75,6 +83,47 @@ const Checkout: React.FC = () => {
                     elevation={3}
                     style={{ padding: '20px', marginTop: '50px' }}
                 >
+                    <Typography fontSize={'18px'} fontWeight={'600'}>
+                        As we're launching our new computer store, we would like
+                        to have a few opening day specials.
+                    </Typography>
+                    <List sx={{ padding: 2 }}>
+                        <ListItem
+                            sx={{
+                                listStyleType: 'disc',
+                                display: 'list-item',
+                            }}
+                        >
+                            <Typography>
+                                We're going to have a 3 for 2 deal on Apple TVs.
+                                For example, if you buy 3 Apple TVs, you will
+                                pay the price of 2 only.
+                            </Typography>
+                        </ListItem>
+                        <ListItem
+                            sx={{
+                                listStyleType: 'disc',
+                                display: 'list-item',
+                            }}
+                        >
+                            <Typography>
+                                The brand new Super iPad will have a bulk
+                                discount applied, where the price will drop to
+                                $499.99 each, if someone buys more than 4.
+                            </Typography>
+                        </ListItem>
+                        <ListItem
+                            sx={{
+                                listStyleType: 'disc',
+                                display: 'list-item',
+                            }}
+                        >
+                            <Typography>
+                                We will bundle in a free VGA adapter free of
+                                charge with every MacBook Pro sold.
+                            </Typography>
+                        </ListItem>
+                    </List>
                     <Typography variant="h5" gutterBottom>
                         Relay Club Checkout
                     </Typography>

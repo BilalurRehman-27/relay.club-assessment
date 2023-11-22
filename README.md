@@ -3,11 +3,11 @@
 Software Engineer Coding Test
 
 The purpose of this assessment is to create a software that can be used as a Checkout feature for retailer store.
-Project structure contains backend code on the root and UI code in the `relay-club-assessment` folder.
+Project structure contains backend code on the root and UI code in the `ui` folder.
 Since, to the best of my knowledge, this assessment was created to access my React/Node.js skills I did not used any database for this assessment. And I kept the data in the server's request lifecycle. If needed, I can create
 database structure.
 
-For frontend, see the ReadMe.md file in the `relay-club-assessment` folder.
+For frontend, see the ReadMe.md file in the `ui` folder.
 For backend simply follow the instructions given below to start the server.
 
 ## Installation
